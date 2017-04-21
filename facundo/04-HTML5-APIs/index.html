@@ -9,10 +9,17 @@
 </head>
 
 <body>
-    <textarea id="textArea" rows="5">
-   Notes here...
-    </textarea>
-    <button type="button" value="save" id="save">Save</button>
+    <textarea id="textArea" rows="5" placeholder="Write text here"></textarea>
+    <div>
+        <button type="button" value="save" id="saveLS">Save in localStorage</button>
+        <button type="button" value="save" id="showLS">Show localStorage</button>
+        <button type="button" value="save" id="clearLS">Clear Local Storage</button>
+    </div>
+    <div>
+        <button type="button" value="save" id="saveIDB">Save in IndexedDB</button>
+        <button type="button" value="save" id="showIDB">Show IndexedDB</button>
+        <button type="button" value="save" id="clearIDB">Clear IndexedDb</button>
+    </div>
     <script src="script.js"></script>
 </body>
 
