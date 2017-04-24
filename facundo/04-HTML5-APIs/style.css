@@ -1,36 +1,40 @@
 #textArea {
-	width: 50%;
-	height: 120px;
-	border: 3px solid #cccccc;
-	font-family: Tahoma, sans-serif;
-	background-position: bottom right;
-	background-repeat: no-repeat;
+    width: 53%;
+    height: 120px;
+    border: 3px solid #cccccc;
+    font-family: Tahoma, sans-serif;
+    background-position: bottom right;
+    background-repeat: no-repeat;
     box-sizing: content-box;
     margin: 2%;
-
 }
+
 body {
-	font-family: 'Lucida Grande', 'Helvetica Neue', sans-serif;
-	font-size: 13px;
-	background: #efefef;
+    font-family: 'Lucida Grande', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    background: #008CBA;
 }
+::-webkit-input-placeholder { font-size: 16px; }
 .panel {
+    background: wheat;
     align-content: center;
-	box-sizing: content-box;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	width: 50%;
-	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
-	-moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
-	margin: 2%;
+    display: inline-block;
+    justify-content: center;
+    text-align: left;
+    box-sizing: content-box;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 50%;
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+    margin: 2%;
     padding: 2%;
-
-	overflow: hidden;
+    overflow: hidden;
 }
+
 .button {
-    background-color: #4CAF50; /* Green */
     border: none;
     color: white;
     padding: 16px 32px;
@@ -39,11 +43,10 @@ body {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     cursor: pointer;
 }
-
 
 .buttonBlue {
     background-color: #008CBA;
@@ -52,8 +55,33 @@ body {
 }
 
 .buttonBlue:hover {
-    
-    background-color: white; 
-    color: black; 
-    
+    background-color: white;
+    color: black;
+}
+
+h1 {
+    color: wheat;
+    font-family: 'Raleway', sans-serif;
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 2%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h4 {
+    display: block;
+    font-size: 16px;
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+.center {
+    display: block;
+    justify-content: center;
+    text-align: center;
 }

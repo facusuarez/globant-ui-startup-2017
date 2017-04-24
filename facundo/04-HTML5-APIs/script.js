@@ -1,48 +1,63 @@
+/**
+ * When the window is loaded it creates a database needed for IndexedDB
+ * ALso calls a function to load functions to buttons
+ */
 window.addEventListener("load", function () {
     createDataBase();
+    buttonsfunctions();
+    dragAndDrop()
 })
-document.getElementById("saveIDB").addEventListener("click", function () {
-    let text = document.getElementById("textArea").value;
-    addText("text", text);
-}, false);
 
-document.getElementById("saveLS").addEventListener("click", function () {
-    mylocalStorage("text", document.getElementById("textArea").value);
-}, false);
+/**
+ * This method adds functionality to buttons
+ * 
+ */
+function buttonsfunctions() {
+    document.getElementById("saveIDB").addEventListener("click", function () {
+        let text = document.getElementById("textArea").value;
+        addText("text", text);
+    }, false);
 
-document.getElementById("showIDB").addEventListener("click", function () {
-    showText();
-}, false);
+    document.getElementById("saveLS").addEventListener("click", function () {
+        mylocalStorage("text", document.getElementById("textArea").value);
+    }, false);
 
-document.getElementById("showLS").addEventListener("click", function () {
-    alert("Your saved text in localStorage is: " + localStorage.getItem("text"));
-}, false);
+    document.getElementById("showIDB").addEventListener("click", function () {
+        showText();
+    }, false);
 
-document.getElementById("clearLS").addEventListener("click", function () {
-    localStorage.clear();
-    alert("Text Cleared from localStorage")
-}, false);
+    document.getElementById("showLS").addEventListener("click", function () {
+        alert("Your saved text in localStorage is: " + localStorage.getItem("text"));
+    }, false);
 
-document.getElementById("clearIDB").addEventListener("click", function () {
-    clearText();
-}, false);
+    document.getElementById("clearLS").addEventListener("click", function () {
+        localStorage.clear();
+        alert("Text Cleared from localStorage")
+    }, false);
 
+    document.getElementById("clearIDB").addEventListener("click", function () {
+        clearText();
+    }, false);
+}
+
+
+/**
+ * This method saves text in localStorage
+ * 
+ * @param {string} name 
+ * @param {string} text 
+ */
 function mylocalStorage(name, text) {
     localStorage.setItem(name, text);
     alert("Text saved in localStorage ");
 
 }
-function openDatabase(dbName) {
-    var openRequest = localDatabase.indexedDB.open(dbName);
-    openRequest.onerror = function (e) {
-        console.log("Database error: " + e.target.errorCode);
-    };
-    openRequest.onsuccess = function (event) {
-        localDatabase.db = openRequest.result;
-        return localDatabase.db;
-    };
-}
 let localDatabase = {};
+
+/**
+ * This method creates a Clean IndexedDB and creates the Object Store "text"  with keyPath "id" 
+ * 
+ */
 function createDataBase() {
     let dbName = "text";
     localDatabase.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
@@ -79,6 +94,12 @@ function createDataBase() {
     };
 }
 
+/**
+ * This method opens a DB and inserts text 
+ * 
+ * @param {string} dbName 
+ * @param {string} textArea 
+ */
 function addText(dbName, textArea) {
     let openRequest = localDatabase.indexedDB.open(dbName, 1);
     openRequest.onsuccess = function (event) {
@@ -98,6 +119,13 @@ function addText(dbName, textArea) {
     };
 
 }
+
+
+/**
+ * This method opens a DB an shows the text saved previously
+ * 
+ * @param {text} dbName 
+ */
 function showText(dbName) {
     let openRequest = localDatabase.indexedDB.open(dbName, 1);
     openRequest.onsuccess = function (event) {
@@ -119,6 +147,12 @@ function showText(dbName) {
         }
     };
 }
+
+
+/**
+ * THis method clears the Object in Indexed DB
+ * 
+ */
 function clearText() {
     let dbName = "text";
     let openRequest = localDatabase.indexedDB.open(dbName, 1);
@@ -141,29 +175,35 @@ function clearText() {
     openRequest.onerror = function (e) {
         console.log("Database error: " + e.target.errorCode);
     };
-
-
 }
-function handleFileSelect(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
 
-    var files = evt.dataTransfer.files; // FileList object.
-    var reader = new FileReader();
-    reader.onload = function (event) {
-        document.getElementById('textArea').value = event.target.result;
+/**
+ * This method implement the Drag And drop funcionality for txt files
+ * 
+ */
+function dragAndDrop() {
+
+    function handleFileSelect(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        var files = evt.dataTransfer.files; // FileList object.
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            document.getElementById('textArea').value = event.target.result;
+        }
+        reader.readAsText(files[0], "UTF-8");
     }
-    reader.readAsText(files[0], "UTF-8");
+
+    function handleDragOver(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+    }
+
+    // Setup the listeners.
+    var dropZone = document.getElementById('textArea');
+    dropZone.addEventListener('dragover', handleDragOver, false);
+    dropZone.addEventListener('drop', handleFileSelect, false);
+
 }
-
-function handleDragOver(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-}
-
-// Setup the dnd listeners.
-var dropZone = document.getElementById('textArea');
-dropZone.addEventListener('dragover', handleDragOver, false);
-dropZone.addEventListener('drop', handleFileSelect, false);
-
