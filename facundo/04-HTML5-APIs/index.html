@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
 
@@ -6,19 +6,20 @@
     <meta charset="utf-8">
     <title>Topic 3</title>
     <meta name="description" content="Topic 3">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
     <textarea id="textArea" rows="5" placeholder="Write text here"></textarea>
-    <div>
-        <button type="button" value="save" id="saveLS">Save in localStorage</button>
-        <button type="button" value="save" id="showLS">Show localStorage</button>
-        <button type="button" value="save" id="clearLS">Clear Local Storage</button>
+    <div class="panel">
+        <button type="button"  class="button buttonBlue" value="save" id="saveLS">Save in localStorage</button>
+        <button type="button" class="button buttonBlue" value="save" id="showLS">Show localStorage</button>
+        <button type="button"  class="button buttonBlue" value="save" id="clearLS">Clear Local Storage</button>
     </div>
-    <div>
-        <button type="button" value="save" id="saveIDB">Save in IndexedDB</button>
-        <button type="button" value="save" id="showIDB">Show IndexedDB</button>
-        <button type="button" value="save" id="clearIDB">Clear IndexedDb</button>
+    <div class="panel">
+        <button type="button" class="button buttonBlue" value="save" id="saveIDB">Save in IndexedDB</button>
+        <button type="button" class="button buttonBlue" value="save" id="showIDB">Show IndexedDB</button>
+        <button type="button" class="button buttonBlue" value="save" id="clearIDB">Clear IndexedDb</button>
     </div>
     <script src="script.js"></script>
 </body>
