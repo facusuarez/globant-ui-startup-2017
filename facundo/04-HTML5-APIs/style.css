@@ -1,4 +1,4 @@
-#textArea {
+.textArea {
     width: 53%;
     height: 120px;
     border: 3px solid #cccccc;
@@ -15,6 +15,7 @@ body {
     background: #008CBA;
 }
 ::-webkit-input-placeholder { font-size: 16px; }
+
 .panel {
     background: wheat;
     align-content: center;
@@ -36,7 +37,6 @@ body {
 
 .button {
     border: none;
-    color: white;
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
@@ -46,15 +46,13 @@ body {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     cursor: pointer;
-}
-
-.buttonBlue {
     background-color: #008CBA;
     color: white;
     border: 2px solid #008CBA;
 }
 
-.buttonBlue:hover {
+
+.button:hover {
     background-color: white;
     color: black;
 }

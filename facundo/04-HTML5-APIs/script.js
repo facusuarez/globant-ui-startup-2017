@@ -122,7 +122,7 @@ function addText(dbName, textArea) {
 
 
 /**
- * This method opens a DB an shows the text saved previously
+ * This method opens a DB and shows the text saved previously
  * 
  * @param {text} dbName 
  */
@@ -178,7 +178,7 @@ function clearText() {
 }
 
 /**
- * This method implement the Drag And drop funcionality for txt files
+ * This method implements the Drag And drop funcionality for txt files
  * 
  */
 function dragAndDrop() {
