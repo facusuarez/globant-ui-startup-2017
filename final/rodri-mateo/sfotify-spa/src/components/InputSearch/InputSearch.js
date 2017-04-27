@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import './InputSearch.css';
 
-class InputSearch extends React.Component {
+class InputSearch extends Component {
   render() {
-    return ( 
-      <div>
-        <input type = "text" id = "inputSearch" placeholder = "Search the name of your favorite artist">
-        </input>
-      </div>
+    return (
+      <form method="get" action="/">
+        <label htmlFor="txtArtist">Search for an artist</label>
+        <input type="text" name="txtArtist" id="txtArtist" placeholder="Search the name of your favorite artist" />
+
+        <input type="submit" value="Search" />
+      </form>
     )
   }
 }
+
+export default InputSearch;

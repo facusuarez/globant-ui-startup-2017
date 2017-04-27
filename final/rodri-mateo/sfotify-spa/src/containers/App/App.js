@@ -7,7 +7,7 @@ import Home from '../Home/Home'
 class App extends Component {
   render() {
     return (
-      
+
       <Home className="App" />
 
     );

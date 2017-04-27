@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FavoriteSongBox from  './FavoriteSongBox';
+//import FavoriteSongBox from  './FavoriteSongBox';
 
 class FavoriteSongsContainer extends Component {
   constructor(props) {
